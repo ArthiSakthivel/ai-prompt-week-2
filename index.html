@@ -1,0 +1,1082 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        [x-cloak] { display: none !important; }
+        .transition-all { transition: all 0.3s ease; }
+        .slide-enter { transform: translateX(100%); }
+        .slide-enter-active { transform: translateX(0%); }
+        .slide-leave { transform: translateX(0%); }
+        .slide-leave-active { transform: translateX(100%); }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.inset-y-0{top:0px;bottom:0px}.left-0{left:0px}.top-1{top:0.25rem}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.ml-1{margin-left:0.25rem}.mr-1{margin-right:0.25rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.block{display:block}.flex{display:flex}.grid{display:grid}.h-4{height:1rem}.h-6{height:1.5rem}.h-64{height:16rem}.h-12{height:3rem}.min-h-screen{min-height:100vh}.w-12{width:3rem}.w-4{width:1rem}.w-full{width:100%}.max-w-md{max-width:28rem}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-red-100{--tw-bg-opacity:1;background-color:rgb(254 226 226 / var(--tw-bg-opacity, 1))}.bg-red-600{--tw-bg-opacity:1;background-color:rgb(220 38 38 / var(--tw-bg-opacity, 1))}.p-2{padding:0.5rem}.p-6{padding:1.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pl-3{padding-left:0.75rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.text-blue-500{--tw-text-opacity:1;color:rgb(59 130 246 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-green-500{--tw-text-opacity:1;color:rgb(34 197 94 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}.opacity-50{opacity:0.5}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:bg-red-700:hover{--tw-bg-opacity:1;background-color:rgb(185 28 28 / var(--tw-bg-opacity, 1))}.hover\:text-gray-700:hover{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-blue-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(59 130 246 / var(--tw-ring-opacity, 1))}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}</style></head>
+<body x-data="financeApp()" :class="darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-800'" class="transition-all">
+    <!-- Navigation -->
+    <nav :class="darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'" class="shadow-lg transition-all">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-wallet text-2xl" :class="darkMode ? 'text-blue-400' : 'text-blue-600'"></i>
+                    <span class="text-xl font-bold">Finance Tracker</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button @click="currentPage = 'dashboard'" :class="currentPage === 'dashboard' ? (darkMode ? 'bg-blue-600' : 'bg-blue-500') : (darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-200')" class="px-3 py-2 rounded-md transition-all" fdprocessedid="o6g36">
+                        <i class="fas fa-home mr-1"></i> Dashboard
+                    </button>
+                    <button @click="currentPage = 'transactions'" :class="currentPage === 'transactions' ? (darkMode ? 'bg-blue-600' : 'bg-blue-500') : (darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-200')" class="px-3 py-2 rounded-md transition-all" fdprocessedid="198m7m">
+                        <i class="fas fa-list mr-1"></i> Transactions
+                    </button>
+                    <button @click="currentPage = 'settings'" :class="currentPage === 'settings' ? (darkMode ? 'bg-blue-600' : 'bg-blue-500') : (darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-200')" class="px-3 py-2 rounded-md transition-all" fdprocessedid="i4lcc">
+                        <i class="fas fa-cog mr-1"></i> Settings
+                    </button>
+                    <button @click="darkMode = !darkMode" class="p-2 rounded-full" :class="darkMode ? 'bg-gray-700 text-yellow-300' : 'bg-gray-200 text-gray-700'" fdprocessedid="7bdz8">
+                        <i :class="darkMode ? 'fas fa-sun' : 'fas fa-moon'"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-6">
+        <!-- Dashboard -->
+        <div x-show="currentPage === 'dashboard'" x-transition="" class="space-y-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold">Dashboard</h1>
+                <button @click="showAddTransactionModal = true" :class="darkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-500 hover:bg-blue-600'" class="px-4 py-2 rounded-md text-white transition-all" fdprocessedid="fn2nr8">
+                    <i class="fas fa-plus mr-1"></i> Add Transaction
+                </button>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Income Card -->
+                <div :class="darkMode ? 'bg-gray-800' : 'bg-white'" class="rounded-lg shadow-md p-6 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-semibold">Monthly Income</h2>
+                        <div :class="darkMode ? 'bg-green-900' : 'bg-green-100'" class="p-2 rounded-full">
+                            <i class="fas fa-arrow-down text-green-500"></i>
+                        </div>
+                    </div>
+                    <p class="text-3xl font-bold" x-text="'₹' + formatNumber(totalIncome)"></p>
+                    <p class="text-sm mt-2" :class="darkMode ? 'text-gray-400' : 'text-gray-500'">
+                        <span x-text="incomeTransactions.length"></span> transactions this month
+                    </p>
+                </div>
+                <!-- Expense Card -->
+                <div :class="darkMode ? 'bg-gray-800' : 'bg-white'" class="rounded-lg shadow-md p-6 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-semibold">Monthly Expenses</h2>
+                        <div :class="darkMode ? 'bg-red-900' : 'bg-red-100'" class="p-2 rounded-full">
+                            <i class="fas fa-arrow-up text-red-500"></i>
+                        </div>
+                    </div>
+                    <p class="text-3xl font-bold" x-text="'₹' + formatNumber(totalExpense)"></p>
+                    <p class="text-sm mt-2" :class="darkMode ? 'text-gray-400' : 'text-gray-500'">
+                        <span x-text="expenseTransactions.length"></span> transactions this month
+                    </p>
+                </div>
+
+                <!-- Savings Card -->
+                <div :class="darkMode ? 'bg-gray-800' : 'bg-white'" class="rounded-lg shadow-md p-6 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-semibold">Monthly Savings</h2>
+                        <div :class="darkMode ? 'bg-blue-900' : 'bg-blue-100'" class="p-2 rounded-full">
+                            <i class="fas fa-piggy-bank text-blue-500"></i>
+                        </div>
+                    </div>
+                    <p class="text-3xl font-bold" x-text="'₹' + formatNumber(totalIncome - totalExpense)"></p>
+                    <p class="text-sm mt-2" :class="darkMode ? 'text-gray-400' : 'text-gray-500'">
+                        <span x-text="savingsPercentage"></span>% of income
+                    </p>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Expense Categories Pie Chart -->
+                <div :class="darkMode ? 'bg-gray-800' : 'bg-white'" class="rounded-lg shadow-md p-6 transition-all">
+                    <h2 class="text-lg font-semibold mb-4">Expense by Category</h2>
+                    <div class="h-64">
+                        <canvas id="expensePieChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Monthly Overview Bar Chart -->
+                <div :class="darkMode ? 'bg-gray-800' : 'bg-white'" class="rounded-lg shadow-md p-6 transition-all">
+                    <h2 class="text-lg font-semibold mb-4">Monthly Overview</h2>
+                    <div class="h-64">
+                        <canvas id="monthlyBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Transactions -->
+            <div :class="darkMode ? 'bg-gray-800' : 'bg-white'" class="rounded-lg shadow-md p-6 transition-all">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold">Recent Transactions</h2>
+                    <button @click="currentPage = 'transactions'" :class="darkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-500'" class="text-sm transition-all" fdprocessedid="mvoqiu">
+                        View All <i class="fas fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr :class="darkMode ? 'border-gray-700' : 'border-gray-200'" class="border-b">
+                                <th class="py-2 text-left">Date</th>
+                                <th class="py-2 text-left">Category</th>
+                                <th class="py-2 text-left">Description</th>
+                                <th class="py-2 text-right">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template x-for="transaction in recentTransactions" :key="transaction.id">
+                                <tr :class="darkMode ? 'border-gray-700 hover:bg-gray-700' : 'border-gray-200 hover:bg-gray-50'" class="border-b transition-all">
+                                    <td class="py-3" x-text="formatDate(transaction.date)"></td>
+                                    <td class="py-3">
+                                        <span :class="getCategoryClass(transaction.category)" class="px-2 py-1 rounded-full text-xs" x-text="transaction.category"></span>
+                                    </td>
+                                    <td class="py-3" x-text="transaction.description"></td>
+                                    <td class="py-3 text-right" :class="transaction.type === 'income' ? 'text-green-500' : 'text-red-500'">
+                                        <span x-text="transaction.type === 'income' ? '+' : '-'"></span>
+                                        <span x-text="'₹' + formatNumber(transaction.amount)"></span>
+                                    </td>
+                                </tr>
+                            </template>
+                            <tr x-show="recentTransactions.length === 0">
+                                <td colspan="4" class="py-4 text-center" :class="darkMode ? 'text-gray-400' : 'text-gray-500'">
+                                    No transactions found. Add your first transaction!
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transactions Page -->
+        <div x-show="currentPage === 'transactions'" x-transition="" class="space-y-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold">Transactions</h1>
+                <button @click="showAddTransactionModal = true" :class="darkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-500 hover:bg-blue-600'" class="px-4 py-2 rounded-md text-white transition-all" fdprocessedid="srkzp7">
+                    <i class="fas fa-plus mr-1"></i> Add Transaction
+                </button>
+            </div>
+            <!-- Filters -->
+            <div :class="darkMode ? 'bg-gray-800' : 'bg-white'" class="rounded-lg shadow-md p-6 transition-all">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div>
+                        <label :class="darkMode ? 'text-gray-300' : 'text-gray-600'" class="block text-sm font-medium mb-1">Type</label>
+                        <select x-model="filters.type" :class="darkMode ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-300'" class="w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" fdprocessedid="ptc3zn">
+                            <option value="all">All Types</option>
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label :class="darkMode ? 'text-gray-300' : 'text-gray-600'" class="block text-sm font-medium mb-1">Category</label>
+                        <select x-model="filters.category" :class="darkMode ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-300'" class="w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" fdprocessedid="j00rzp">
+                            <option value="all">All Categories</option>
+                            <template x-for="category in categories" :key="category">
+                                <option :value="category" x-text="category"></option>
+                            </template>
+                        </select>
+                    </div>
+                    <div>
+                        <label :class="darkMode ? 'text-gray-300' : 'text-gray-600'" class="block text-sm font-medium mb-1">From Date</label>
+                        <input type="date" x-model="filters.fromDate" :class="darkMode ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-300'" class="w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label :class="darkMode ? 'text-gray-300' : 'text-gray-600'" class="block text-sm font-medium mb-1">To Date</label>
+                        <input type="date" x-model="filters.toDate" :class="darkMode ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-300'" class="w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="flex justify-between mt-4">
+                    <div>
+                        <label :class="darkMode ? 'text-gray-300' : 'text-gray-600'" class="block text-sm font-medium mb-1">Sort By</label>
+                        <div class="flex space-x-2">
+                            <button @click="sortBy = 'date'; sortDesc = !sortDesc" :class="sortBy === 'date' ? (darkMode ? 'bg-blue-600' : 'bg-blue-500 text-white') : (darkMode ? 'bg-gray-700' : 'bg-gray-200')" class="px-3 py-1 rounded-md text-sm transition-all" fdprocessedid="uyjl9l">
+                                Date <i :class="sortBy === 'date' ? (sortDesc ? 'fas fa-arrow-down' : 'fas fa-arrow-up') : ''"></i>
+                            </button>
+                            <button @click="sortBy = 'amount'; sortDesc = !sortDesc" :class="sortBy === 'amount' ? (darkMode ? 'bg-blue-600' : 'bg-blue-500 text-white') : (darkMode ? 'bg-gray-700' : 'bg-gray-200')" class="px-3 py-1 rounded-md text-sm transition-all" fdprocessedid="cog9tj">
+                                Amount <i :class="sortBy === 'amount' ? (sortDesc ? 'fas fa-arrow-down' : 'fas fa-arrow-up') : ''"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button @click="resetFilters()" :class="darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'" class="text-sm flex items-center transition-all" fdprocessedid="agteuk">
+                        <i class="fas fa-redo mr-1"></i> Reset Filters
+                    </button>
+                </div>
+            </div>
+
+            <!-- Transactions List -->
+            <div :class="darkMode ? 'bg-gray-800' : 'bg-white'" class="rounded-lg shadow-md p-6 transition-all">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr :class="darkMode ? 'border-gray-700' : 'border-gray-200'" class="border-b">
+                                <th class="py-2 text-left">Date</th>
+                                <th class="py-2 text-left">Type</th>
+                                <th class="py-2 text-left">Category</th>
+                                <th class="py-2 text-left">Description</th>
+                                <th class="py-2 text-right">Amount</th>
+                                <th class="py-2 text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template x-for="transaction in filteredAndSortedTransactions" :key="transaction.id">
+                                <tr :class="darkMode ? 'border-gray-700 hover:bg-gray-700' : 'border-gray-200 hover:bg-gray-50'" class="border-b transition-all">
+                                    <td class="py-3" x-text="formatDate(transaction.date)"></td>
+                                    <td class="py-3">
+                                        <span :class="transaction.type === 'income' ? (darkMode ? 'bg-green-900 text-green-300' : 'bg-green-100 text-green-800') : (darkMode ? 'bg-red-900 text-red-300' : 'bg-red-100 text-red-800')" class="px-2 py-1 rounded-full text-xs" x-text="transaction.type"></span>
+                                    </td>
+                                    <td class="py-3">
+                                        <span :class="getCategoryClass(transaction.category)" class="px-2 py-1 rounded-full text-xs" x-text="transaction.category"></span>
+                                    </td>
+                                    <td class="py-3" x-text="transaction.description"></td>
+                                    <td class="py-3 text-right" :class="transaction.type === 'income' ? 'text-green-500' : 'text-red-500'">
+                                        <span x-text="transaction.type === 'income' ? '+' : '-'"></span>
+                                        <span x-text="'₹' + formatNumber(transaction.amount)"></span>
+                                    </td>
+                                    <td class="py-3 text-right">
+                                        <button @click="editTransaction(transaction)" :class="darkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-500'" class="mr-2 transition-all">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button @click="deleteTransaction(transaction.id)" :class="darkMode ? 'text-red-400 hover:text-red-300' : 'text-red-600 hover:text-red-500'" class="transition-all">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </template>
+                            <tr x-show="filteredAndSortedTransactions.length === 0">
+                                <td colspan="6" class="py-4 text-center" :class="darkMode ? 'text-gray-400' : 'text-gray-500'">
+                                    No transactions found. Adjust your filters or add a new transaction.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Page -->
+        <div x-show="currentPage === 'settings'" x-transition="" class="space-y-6">
+            <h1 class="text-2xl font-bold">Settings</h1>
+
+            <!-- Theme Settings -->
+            <div :class="darkMode ? 'bg-gray-800' : 'bg-white'" class="rounded-lg shadow-md p-6 transition-all">
+                <h2 class="text-lg font-semibold mb-4">Appearance</h2>
+                <div class="flex items-center justify-between">
+                    <span>Dark Mode</span>
+                    <button @click="toggleDarkMode()" class="w-12 h-6 rounded-full relative focus:outline-none transition-all" :class="darkMode ? 'bg-blue-600' : 'bg-gray-300'" fdprocessedid="e7hej5">
+                        <span class="w-4 h-4 rounded-full bg-white absolute top-1 transition-all" :class="darkMode ? 'right-1' : 'left-1'"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Data Management -->
+            <div :class="darkMode ? 'bg-gray-800' : 'bg-white'" class="rounded-lg shadow-md p-6 transition-all">
+                <h2 class="text-lg font-semibold mb-4">Data Management</h2>
+                <div class="space-y-4">
+                    <div>
+                        <button @click="exportCSV()" :class="darkMode ? 'bg-green-600 hover:bg-green-700' : 'bg-green-500 hover:bg-green-600'" class="px-4 py-2 rounded-md text-white transition-all" fdprocessedid="7he9xov">
+                            <i class="fas fa-file-csv mr-1"></i> Export as CSV
+                        </button>
+                        <p class="text-sm mt-1" :class="darkMode ? 'text-gray-400' : 'text-gray-500'">Download all your transaction data as a CSV file</p>
+                    </div>
+                    <div>
+                        <button @click="exportPDF()" :class="darkMode ? 'bg-red-600 hover:bg-red-700' : 'bg-red-500 hover:bg-red-600'" class="px-4 py-2 rounded-md text-white transition-all" fdprocessedid="nonilq">
+                            <i class="fas fa-file-pdf mr-1"></i> Export as PDF
+                        </button>
+                        <p class="text-sm mt-1" :class="darkMode ? 'text-gray-400' : 'text-gray-500'">Generate a PDF report of your transactions</p>
+                    </div>
+                    <div>
+                        <button @click="confirmClearData = true" :class="darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-200 hover:bg-gray-300'" class="px-4 py-2 rounded-md transition-all" fdprocessedid="g9f97a">
+                            <i class="fas fa-trash-alt mr-1"></i> Clear All Data
+                        </button>
+                        <p class="text-sm mt-1" :class="darkMode ? 'text-gray-400' : 'text-gray-500'">Delete all your transaction data (cannot be undone)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About -->
+            <div :class="darkMode ? 'bg-gray-800' : 'bg-white'" class="rounded-lg shadow-md p-6 transition-all">
+                <h2 class="text-lg font-semibold mb-2">About Finance Tracker</h2>
+                <p :class="darkMode ? 'text-gray-400' : 'text-gray-600'">Version 1.0.0</p>
+                <p class="mt-2" :class="darkMode ? 'text-gray-400' : 'text-gray-600'">A simple personal finance tracker to help you manage your income and expenses. All data is stored locally in your browser.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Transaction Modal -->
+    <div x-show="showAddTransactionModal" class="fixed inset-0 z-50 overflow-y-auto" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+        <div class="flex items-center justify-center min-h-screen px-4">
+            <div class="fixed inset-0 bg-black opacity-50" @click="cancelTransaction()"></div>
+            <div :class="darkMode ? 'bg-gray-800' : 'bg-white'" class="relative rounded-lg shadow-xl max-w-md w-full p-6 transition-all" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="transform scale-95" x-transition:enter-end="transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="transform scale-100" x-transition:leave-end="transform scale-95">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold" x-text="editingTransaction ? 'Edit Transaction' : 'Add New Transaction'"></h2>
+                    <button @click="cancelTransaction()" class="text-gray-500 hover:text-gray-700" fdprocessedid="6a7b4">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <form @submit.prevent="saveTransaction()">
+                    <div class="space-y-4">
+                        <!-- Transaction Type -->
+                        <div>
+                            <label :class="darkMode ? 'text-gray-300' : 'text-gray-700'" class="block text-sm font-medium mb-1">Transaction Type</label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <button type="button" @click="newTransaction.type = 'income'" :class="newTransaction.type === 'income' ? (darkMode ? 'bg-green-600 text-white' : 'bg-green-500 text-white') : (darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-200 text-gray-700')" class="py-2 rounded-md transition-all" fdprocessedid="7j45h">
+                                    <i class="fas fa-arrow-down mr-1"></i> Income
+                                </button>
+                                <button type="button" @click="newTransaction.type = 'expense'" :class="newTransaction.type === 'expense' ? (darkMode ? 'bg-red-600 text-white' : 'bg-red-500 text-white') : (darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-200 text-gray-700')" class="py-2 rounded-md transition-all" fdprocessedid="wu67mn">
+                                    <i class="fas fa-arrow-up mr-1"></i> Expense
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Amount -->
+                        <div>
+                            <label for="amount" :class="darkMode ? 'text-gray-300' : 'text-gray-700'" class="block text-sm font-medium mb-1">Amount (₹)</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3" :class="darkMode ? 'text-gray-400' : 'text-gray-500'">₹</span>
+                                <input type="number" id="amount" x-model="newTransaction.amount" :class="darkMode ? 'bg-gray-700 border-gray-600 text-white pl-8' : 'bg-white border-gray-300 text-gray-900 pl-8'" class="w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" min="0" step="0.01" required="" fdprocessedid="d2e0vr">
+                            </div>
+                            <p x-show="formErrors.amount" class="mt-1 text-sm text-red-500" x-text="formErrors.amount"></p>
+                        </div>
+
+                        <!-- Category -->
+                        <div>
+                            <label for="category" :class="darkMode ? 'text-gray-300' : 'text-gray-700'" class="block text-sm font-medium mb-1">Category</label>
+                            <select id="category" x-model="newTransaction.category" :class="darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300 text-gray-900'" class="w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required="" fdprocessedid="ftcg1l">
+                                <option value="" disabled="">Select a category</option>
+                                <template x-if="newTransaction.type === 'income'">
+                                    <template x-for="category in incomeCategories" :key="category">
+                                        <option :value="category" x-text="category"></option>
+                                    </template>
+                                </template>
+                                <template x-if="newTransaction.type === 'expense'">
+                                    <template x-for="category in expenseCategories" :key="category">
+                                        <option :value="category" x-text="category"></option>
+                                    </template>
+                                </template>
+                            </select>
+                            <p x-show="formErrors.category" class="mt-1 text-sm text-red-500" x-text="formErrors.category"></p>
+                        </div>
+
+                        <!-- Description -->
+                        <div>
+                            <label for="description" :class="darkMode ? 'text-gray-300' : 'text-gray-700'" class="block text-sm font-medium mb-1">Description</label>
+                            <input type="text" id="description" x-model="newTransaction.description" :class="darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300 text-gray-900'" class="w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required="" fdprocessedid="tskakn">
+                            <p x-show="formErrors.description" class="mt-1 text-sm text-red-500" x-text="formErrors.description"></p>
+                        </div>
+
+                        <!-- Date -->
+                        <div>
+                            <label for="date" :class="darkMode ? 'text-gray-300' : 'text-gray-700'" class="block text-sm font-medium mb-1">Date</label>
+                            <input type="date" id="date" x-model="newTransaction.date" :class="darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300 text-gray-900'" class="w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required="">
+                            <p x-show="formErrors.date" class="mt-1 text-sm text-red-500" x-text="formErrors.date"></p>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="flex justify-end space-x-3 mt-6">
+                            <button type="button" @click="cancelTransaction()" :class="darkMode ? 'bg-gray-700 hover:bg-gray-600 text-white' : 'bg-gray-200 hover:bg-gray-300 text-gray-800'" class="px-4 py-2 rounded-md transition-all" fdprocessedid="5q9zf">
+                                Cancel
+                            </button>
+                            <button type="submit" :class="darkMode ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-blue-500 hover:bg-blue-600 text-white'" class="px-4 py-2 rounded-md transition-all" fdprocessedid="c6pz1x">
+                                <span x-text="editingTransaction ? 'Update' : 'Add'"></span> Transaction
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div x-show="confirmClearData" class="fixed inset-0 z-50 overflow-y-auto" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+        <div class="flex items-center justify-center min-h-screen px-4">
+            <div class="fixed inset-0 bg-black opacity-50" @click="confirmClearData = false"></div>
+            <div :class="darkMode ? 'bg-gray-800' : 'bg-white'" class="relative rounded-lg shadow-xl max-w-md w-full p-6 transition-all" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="transform scale-95" x-transition:enter-end="transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="transform scale-100" x-transition:leave-end="transform scale-95">
+                <div class="text-center">
+                    <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 mb-4">
+                        <i class="fas fa-exclamation-triangle text-red-600"></i>
+                    </div>
+                    <h3 class="text-lg font-medium mb-2">Clear All Data?</h3>
+                    <p :class="darkMode ? 'text-gray-400' : 'text-gray-500'" class="mb-4">This will permanently delete all your transaction data. This action cannot be undone.</p>
+                    <div class="flex justify-center space-x-3">
+                        <button @click="confirmClearData = false" :class="darkMode ? 'bg-gray-700 hover:bg-gray-600 text-white' : 'bg-gray-200 hover:bg-gray-300 text-gray-800'" class="px-4 py-2 rounded-md transition-all" fdprocessedid="a6hw4">
+                            Cancel
+                        </button>
+                        <button @click="clearAllData()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md transition-all" fdprocessedid="ez0wxw">
+                            Yes, Clear All Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function financeApp() {
+            return {
+                currentPage: 'dashboard',
+                darkMode: localStorage.getItem('darkMode') === 'true' || false,
+                transactions: JSON.parse(localStorage.getItem('transactions')) || [],
+                showAddTransactionModal: false,
+                confirmClearData: false,
+                editingTransaction: false,
+                editingTransactionId: null,
+                newTransaction: {
+                    id: null,
+                    type: 'expense',
+                    amount: '',
+                    category: '',
+                    description: '',
+                    date: new Date().toISOString().split('T')[0]
+                },
+                formErrors: {
+                    amount: '',
+                    category: '',
+                    description: '',
+                    date: ''
+                },
+                filters: {
+                    type: 'all',
+                    category: 'all',
+                    fromDate: '',
+                    toDate: ''
+                },
+                sortBy: 'date',
+                sortDesc: true,
+                incomeCategories: ['Salary', 'Freelance', 'Investments', 'Gifts', 'Other Income'],
+                expenseCategories: ['Food', 'Transportation', 'Housing', 'Utilities', 'Entertainment', 'Shopping', 'Healthcare', 'Education', 'Travel', 'Bills', 'Other'],
+                pieChart: null,
+                barChart: null,
+
+                init() {
+                    this.loadSampleData();
+                    this.$nextTick(() => {
+                        this.updateCharts();
+                    });
+                    this.toggleDarkMode(this.darkMode);
+                },
+
+                get categories() {
+                    return [...new Set([...this.incomeCategories, ...this.expenseCategories])];
+                },
+
+                get totalIncome() {
+                    return this.incomeTransactions.reduce((sum, transaction) => sum + parseFloat(transaction.amount), 0);
+                },
+
+                get totalExpense() {
+                    return this.expenseTransactions.reduce((sum, transaction) => sum + parseFloat(transaction.amount), 0);
+                },
+
+                get savingsPercentage() {
+                    if (this.totalIncome === 0) return 0;
+                    return Math.round(((this.totalIncome - this.totalExpense) / this.totalIncome) * 100);
+                },
+
+                get incomeTransactions() {
+                    const currentMonth = new Date().getMonth();
+                    const currentYear = new Date().getFullYear();
+                    return this.transactions.filter(t => {
+                        const transactionDate = new Date(t.date);
+                        return t.type === 'income' && 
+                               transactionDate.getMonth() === currentMonth && 
+                               transactionDate.getFullYear() === currentYear;
+                    });
+                },
+
+                get expenseTransactions() {
+                    const currentMonth = new Date().getMonth();
+                    const currentYear = new Date().getFullYear();
+                    return this.transactions.filter(t => {
+                        const transactionDate = new Date(t.date);
+                        return t.type === 'expense' && 
+                               transactionDate.getMonth() === currentMonth && 
+                               transactionDate.getFullYear() === currentYear;
+                    });
+                },
+
+                get recentTransactions() {
+                    return [...this.transactions]
+                        .sort((a, b) => new Date(b.date) - new Date(a.date))
+                        .slice(0, 5);
+                },
+
+                get filteredAndSortedTransactions() {
+                    let filtered = [...this.transactions];
+                    
+                    // Apply filters
+                    if (this.filters.type !== 'all') {
+                        filtered = filtered.filter(t => t.type === this.filters.type);
+                    }
+                    
+                    if (this.filters.category !== 'all') {
+                        filtered = filtered.filter(t => t.category === this.filters.category);
+                    }
+                    
+                    if (this.filters.fromDate) {
+                        filtered = filtered.filter(t => t.date >= this.filters.fromDate);
+                    }
+                    
+                    if (this.filters.toDate) {
+                        filtered = filtered.filter(t => t.date <= this.filters.toDate);
+                    }
+                    
+                    // Apply sorting
+                    filtered.sort((a, b) => {
+                        if (this.sortBy === 'date') {
+                            return this.sortDesc ? new Date(b.date) - new Date(a.date) : new Date(a.date) - new Date(b.date);
+                        } else if (this.sortBy === 'amount') {
+                            return this.sortDesc ? b.amount - a.amount : a.amount - b.amount;
+                        }
+                        return 0;
+                    });
+                    
+                    return filtered;
+                },
+
+                formatNumber(num) {
+                    return parseFloat(num).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                },
+
+                formatDate(dateString) {
+                    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+                    return new Date(dateString).toLocaleDateString(undefined, options);
+                },
+
+                getCategoryClass(category) {
+                    const categoryColors = {
+                        'Salary': 'bg-green-100 text-green-800',
+                        'Freelance': 'bg-emerald-100 text-emerald-800',
+                        'Investments': 'bg-teal-100 text-teal-800',
+                        'Gifts': 'bg-cyan-100 text-cyan-800',
+                        'Other Income': 'bg-blue-100 text-blue-800',
+                        'Food': 'bg-orange-100 text-orange-800',
+                        'Transportation': 'bg-amber-100 text-amber-800',
+                        'Housing': 'bg-indigo-100 text-indigo-800',
+                        'Utilities': 'bg-violet-100 text-violet-800',
+                        'Entertainment': 'bg-purple-100 text-purple-800',
+                        'Shopping': 'bg-pink-100 text-pink-800',
+                        'Healthcare': 'bg-rose-100 text-rose-800',
+                        'Education': 'bg-sky-100 text-sky-800',
+                        'Travel': 'bg-lime-100 text-lime-800',
+                        'Bills': 'bg-yellow-100 text-yellow-800',
+                        'Other': 'bg-gray-100 text-gray-800'
+                    };
+
+                    if (this.darkMode) {
+                        // Dark mode versions
+                        const darkModeColors = {
+                            'Salary': 'bg-green-900 text-green-300',
+                            'Freelance': 'bg-emerald-900 text-emerald-300',
+                            'Investments': 'bg-teal-900 text-teal-300',
+                            'Gifts': 'bg-cyan-900 text-cyan-300',
+                            'Other Income': 'bg-blue-900 text-blue-300',
+                            'Food': 'bg-orange-900 text-orange-300',
+                            'Transportation': 'bg-amber-900 text-amber-300',
+                            'Housing': 'bg-indigo-900 text-indigo-300',
+                            'Utilities': 'bg-violet-900 text-violet-300',
+                            'Entertainment': 'bg-purple-900 text-purple-300',
+                            'Shopping': 'bg-pink-900 text-pink-300',
+                            'Healthcare': 'bg-rose-900 text-rose-300',
+                            'Education': 'bg-sky-900 text-sky-300',
+                            'Travel': 'bg-lime-900 text-lime-300',
+                            'Bills': 'bg-yellow-900 text-yellow-300',
+                            'Other': 'bg-gray-900 text-gray-300'
+                        };
+                        return darkModeColors[category] || 'bg-gray-900 text-gray-300';
+                    }
+
+                    return categoryColors[category] || 'bg-gray-100 text-gray-800';
+                },
+
+                toggleDarkMode(value = null) {
+                    if (value !== null) {
+                        this.darkMode = value;
+                    } else {
+                        this.darkMode = !this.darkMode;
+                    }
+                    localStorage.setItem('darkMode', this.darkMode);
+                    this.$nextTick(() => {
+                        this.updateCharts();
+                    });
+                },
+
+                resetFilters() {
+                    this.filters = {
+                        type: 'all',
+                        category: 'all',
+                        fromDate: '',
+                        toDate: ''
+                    };
+                    this.sortBy = 'date';
+                    this.sortDesc = true;
+                },
+
+                validateForm() {
+                    let isValid = true;
+                    this.formErrors = {
+                        amount: '',
+                        category: '',
+                        description: '',
+                        date: ''
+                    };
+
+                    if (!this.newTransaction.amount || isNaN(this.newTransaction.amount) || parseFloat(this.newTransaction.amount) <= 0) {
+                        this.formErrors.amount = 'Please enter a valid amount greater than zero';
+                        isValid = false;
+                    }
+
+                    if (!this.newTransaction.category) {
+                        this.formErrors.category = 'Please select a category';
+                        isValid = false;
+                    }
+
+                    if (!this.newTransaction.description.trim()) {
+                        this.formErrors.description = 'Please enter a description';
+                        isValid = false;
+                    }
+
+                    if (!this.newTransaction.date) {
+                        this.formErrors.date = 'Please select a date';
+                        isValid = false;
+                    }
+
+                    return isValid;
+                },
+
+                saveTransaction() {
+                    if (!this.validateForm()) return;
+
+                    if (this.editingTransaction) {
+                        // Update existing transaction
+                        const index = this.transactions.findIndex(t => t.id === this.editingTransactionId);
+                        if (index !== -1) {
+                            this.transactions[index] = {
+                                ...this.newTransaction,
+                                id: this.editingTransactionId,
+                                amount: parseFloat(this.newTransaction.amount)
+                            };
+                        }
+                    } else {
+                        // Add new transaction
+                        this.transactions.push({
+                            ...this.newTransaction,
+                            id: Date.now(),
+                            amount: parseFloat(this.newTransaction.amount)
+                        });
+                    }
+
+                    // Save to localStorage
+                    localStorage.setItem('transactions', JSON.stringify(this.transactions));
+
+                    // Reset and close modal
+                    this.resetTransactionForm();
+                    this.showAddTransactionModal = false;
+                    
+                    // Update charts
+                    this.$nextTick(() => {
+                        this.updateCharts();
+                    });
+                },
+
+                editTransaction(transaction) {
+                    this.editingTransaction = true;
+                    this.editingTransactionId = transaction.id;
+                    this.newTransaction = { ...transaction };
+                    this.showAddTransactionModal = true;
+                },
+
+                deleteTransaction(id) {
+                    if (confirm('Are you sure you want to delete this transaction?')) {
+                        this.transactions = this.transactions.filter(t => t.id !== id);
+                        localStorage.setItem('transactions', JSON.stringify(this.transactions));
+                        
+                        // Update charts
+                        this.$nextTick(() => {
+                            this.updateCharts();
+                        });
+                    }
+                },
+
+                cancelTransaction() {
+                    this.resetTransactionForm();
+                    this.showAddTransactionModal = false;
+                },
+
+                resetTransactionForm() {
+                    this.editingTransaction = false;
+                    this.editingTransactionId = null;
+                    this.newTransaction = {
+                        id: null,
+                        type: 'expense',
+                        amount: '',
+                        category: '',
+                        description: '',
+                        date: new Date().toISOString().split('T')[0]
+                    };
+                    this.formErrors = {
+                        amount: '',
+                        category: '',
+                        description: '',
+                        date: ''
+                    };
+                },
+
+                clearAllData() {
+                    localStorage.removeItem('transactions');
+                    this.transactions = [];
+                    this.confirmClearData = false;
+                    
+                    // Update charts
+                    this.$nextTick(() => {
+                        this.updateCharts();
+                    });
+                },
+
+                exportCSV() {
+                    if (this.transactions.length === 0) {
+                        alert('No transactions to export');
+                        return;
+                    }
+
+                    const headers = ['Date', 'Type', 'Category', 'Description', 'Amount'];
+                    const csvContent = [
+                        headers.join(','),
+                        ...this.transactions.map(t => [
+                            t.date,
+                            t.type,
+                            t.category,
+                            `"${t.description.replace(/"/g, '""')}"`,
+                            t.amount
+                        ].join(','))
+                    ].join('\n');
+
+                    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                    const link = document.createElement('a');
+                    const url = URL.createObjectURL(blob);
+                    
+                    link.setAttribute('href', url);
+                    link.setAttribute('download', `finance_tracker_export_${new Date().toISOString().split('T')[0]}.csv`);
+                    link.style.visibility = 'hidden';
+                    
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+
+                exportPDF() {
+                    alert('PDF export functionality would be implemented here. In a real application, this would generate a PDF report of your transactions.');
+                },
+
+                updateCharts() {
+                    this.updateExpensePieChart();
+                    this.updateMonthlyBarChart();
+                },
+
+                updateExpensePieChart() {
+                    const ctx = document.getElementById('expensePieChart');
+                    if (!ctx) return;
+
+                    // Destroy existing chart if it exists
+                    if (this.pieChart) {
+                        this.pieChart.destroy();
+                    }
+
+                    // Prepare data for pie chart
+                    const categoryTotals = {};
+                    this.expenseTransactions.forEach(transaction => {
+                        if (!categoryTotals[transaction.category]) {
+                            categoryTotals[transaction.category] = 0;
+                        }
+                        categoryTotals[transaction.category] += parseFloat(transaction.amount);
+                    });
+
+                    const labels = Object.keys(categoryTotals);
+                    const data = Object.values(categoryTotals);
+
+                    // Colors for categories
+                    const backgroundColors = [
+                        '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF',
+                        '#FF9F40', '#8AC926', '#1982C4', '#6A4C93', '#F15BB5',
+                        '#00BBF9', '#00F5D4'
+                    ];
+
+                    // Create the pie chart
+                    this.pieChart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                data: data,
+                                backgroundColor: backgroundColors.slice(0, labels.length),
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    position: 'right',
+                                    labels: {
+                                        color: this.darkMode ? '#fff' : '#333'
+                                    }
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: (context) => {
+                                            const label = context.label || '';
+                                            const value = context.raw || 0;
+                                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                            const percentage = Math.round((value / total) * 100);
+                                            return `${label}: ₹${this.formatNumber(value)} (${percentage}%)`;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                },
+
+                updateMonthlyBarChart() {
+                    const ctx = document.getElementById('monthlyBarChart');
+                    if (!ctx) return;
+
+                    // Destroy existing chart if it exists
+                    if (this.barChart) {
+                        this.barChart.destroy();
+                    }
+
+                    // Get last 6 months
+                    const months = [];
+                    const incomeData = [];
+                    const expenseData = [];
+
+                    for (let i = 5; i >= 0; i--) {
+                        const date = new Date();
+                        date.setMonth(date.getMonth() - i);
+                        const monthYear = date.toLocaleString('default', { month: 'short', year: '2-digit' });
+                        
+                        const monthStart = new Date(date.getFullYear(), date.getMonth(), 1).toISOString().split('T')[0];
+                        const monthEnd = new Date(date.getFullYear(), date.getMonth() + 1, 0).toISOString().split('T')[0];
+                        
+                        const monthIncome = this.transactions
+                            .filter(t => t.type === 'income' && t.date >= monthStart && t.date <= monthEnd)
+                            .reduce((sum, t) => sum + parseFloat(t.amount), 0);
+                            
+                        const monthExpense = this.transactions
+                            .filter(t => t.type === 'expense' && t.date >= monthStart && t.date <= monthEnd)
+                            .reduce((sum, t) => sum + parseFloat(t.amount), 0);
+                        
+                        months.push(monthYear);
+                        incomeData.push(monthIncome);
+                        expenseData.push(monthExpense);
+                    }
+
+                    // Create the bar chart
+                    this.barChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: months,
+                            datasets: [
+                                {
+                                    label: 'Income',
+                                    data: incomeData,
+                                    backgroundColor: '#4ade80',
+                                    borderColor: '#22c55e',
+                                    borderWidth: 1
+                                },
+                                {
+                                    label: 'Expenses',
+                                    data: expenseData,
+                                    backgroundColor: '#f87171',
+                                    borderColor: '#ef4444',
+                                    borderWidth: 1
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: {
+                                    ticks: {
+                                        color: this.darkMode ? '#fff' : '#333'
+                                    },
+                                    grid: {
+                                        color: this.darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'
+                                    }
+                                },
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        color: this.darkMode ? '#fff' : '#333',
+                                        callback: (value) => '₹' + this.formatNumber(value)
+                                    },
+                                    grid: {
+                                        color: this.darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'
+                                    }
+                                }
+                            },
+                            plugins: {
+                                legend: {
+                                    labels: {
+                                        color: this.darkMode ? '#fff' : '#333'
+                                    }
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: (context) => {
+                                            const label = context.dataset.label || '';
+                                            const value = context.raw || 0;
+                                            return `${label}: ₹${this.formatNumber(value)}`;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                },
+
+                loadSampleData() {
+                    // Only load sample data if no transactions exist
+                    if (this.transactions.length > 0) return;
+
+                    const today = new Date();
+                    const currentMonth = today.getMonth();
+                    const currentYear = today.getFullYear();
+                    
+                    const sampleData = [
+                        {
+                            id: 1,
+                            type: 'income',
+                            amount: 45000,
+                            category: 'Salary',
+                            description: 'Monthly Salary',
+                            date: new Date(currentYear, currentMonth, 1).toISOString().split('T')[0]
+                        },
+                        {
+                            id: 2,
+                            type: 'income',
+                            amount: 5000,
+                            category: 'Freelance',
+                            description: 'Website Design Project',
+                            date: new Date(currentYear, currentMonth, 10).toISOString().split('T')[0]
+                        },
+                        {
+                            id: 3,
+                            type: 'expense',
+                            amount: 12000,
+                            category: 'Housing',
+                            description: 'Rent Payment',
+                            date: new Date(currentYear, currentMonth, 5).toISOString().split('T')[0]
+                        },
+                        {
+                            id: 4,
+                            type: 'expense',
+                            amount: 2500,
+                            category: 'Utilities',
+                            description: 'Electricity Bill',
+                            date: new Date(currentYear, currentMonth, 8).toISOString().split('T')[0]
+                        },
+                        {
+                            id: 5,
+                            type: 'expense',
+                            amount: 1800,
+                            category: 'Utilities',
+                            description: 'Internet Bill',
+                            date: new Date(currentYear, currentMonth, 9).toISOString().split('T')[0]
+                        },
+                        {
+                            id: 6,
+                            type: 'expense',
+                            amount: 5000,
+                            category: 'Food',
+                            description: 'Grocery Shopping',
+                            date: new Date(currentYear, currentMonth, 12).toISOString().split('T')[0]
+                        },
+                        {
+                            id: 7,
+                            type: 'expense',
+                            amount: 3500,
+                            category: 'Transportation',
+                            description: 'Fuel',
+                            date: new Date(currentYear, currentMonth, 15).toISOString().split('T')[0]
+                        },
+                        {
+                            id: 8,
+                            type: 'expense',
+                            amount: 2000,
+                            category: 'Entertainment',
+                            description: 'Movie and Dinner',
+                            date: new Date(currentYear, currentMonth, 18).toISOString().split('T')[0]
+                        },
+                        {
+                            id: 9,
+                            type: 'expense',
+                            amount: 4500,
+                            category: 'Shopping',
+                            description: 'New Clothes',
+                            date: new Date(currentYear, currentMonth, 20).toISOString().split('T')[0]
+                        },
+                        {
+                            id: 10,
+                            type: 'income',
+                            amount: 2000,
+                            category: 'Gifts',
+                            description: 'Birthday Gift',
+                            date: new Date(currentYear, currentMonth, 22).toISOString().split('T')[0]
+                        }
+                    ];
+
+                    // Add some data for previous months
+                    for (let i = 1; i <= 5; i++) {
+                        const prevMonth = new Date(currentYear, currentMonth - i, 15);
+                        
+                        sampleData.push({
+                            id: 100 + i,
+                            type: 'income',
+                            amount: 45000 - (i * 1000 * Math.random()),
+                            category: 'Salary',
+                            description: 'Monthly Salary',
+                            date: new Date(prevMonth.getFullYear(), prevMonth.getMonth(), 1).toISOString().split('T')[0]
+                        });
+                        
+                        sampleData.push({
+                            id: 200 + i,
+                            type: 'expense',
+                            amount: 12000,
+                            category: 'Housing',
+                            description: 'Rent Payment',
+                            date: new Date(prevMonth.getFullYear(), prevMonth.getMonth(), 5).toISOString().split('T')[0]
+                        });
+                        
+                        sampleData.push({
+                            id: 300 + i,
+                            type: 'expense',
+                            amount: 4000 + (i * 500 * Math.random()),
+                            category: 'Food',
+                            description: 'Grocery Shopping',
+                            date: new Date(prevMonth.getFullYear(), prevMonth.getMonth(), 12).toISOString().split('T')[0]
+                        });
+                    }
+
+                    this.transactions = sampleData;
+                    localStorage.setItem('transactions', JSON.stringify(this.transactions));
+                }
+            };
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'947c7c5f40f9936e',t:'MTc0ODU4OTgwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+
+<span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>
